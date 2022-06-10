@@ -11,14 +11,14 @@ public class PlayerJoined {
 
         if (!plugin.getConfig().contains("players." + player.getUniqueId())) {
             plugin.getConfig().set("players." + player.getUniqueId() + ".name", player.getDisplayName());
-            plugin.getConfig().set("players." + player.getUniqueId() + ".banned", "false");
+            plugin.getConfig().set("players." + player.getUniqueId() + ".banned", false);
             plugin.getConfig().set("players." + player.getUniqueId() + ".reason_ban", "N/A");
             plugin.getConfig().set("players." + player.getUniqueId() + ".time_ban", 0);
-            plugin.getConfig().set("players." + player.getUniqueId() + ".muted", "false");
+            plugin.getConfig().set("players." + player.getUniqueId() + ".muted", false);
             plugin.saveConfig();
         }
 
-        if (plugin.getConfig().getString("players." + player.getUniqueId() + ".banned") == "true") {
+        if (plugin.getConfig().getBoolean("players." + player.getUniqueId() + ".banned")) {
             player.kickPlayer("Vous avez ete banni !");
         }
     }

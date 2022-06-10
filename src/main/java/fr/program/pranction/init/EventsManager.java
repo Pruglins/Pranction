@@ -19,9 +19,9 @@ public class EventsManager implements Listener {
     public void PlayerJoin(PlayerJoinEvent event) {
         PlayerJoined.init(event, plugin);
     }
-
     @EventHandler
     public void PlayerChat(AsyncPlayerChatEvent event) {
         PlayerChated.init(event, plugin);
     }
+
 }

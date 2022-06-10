@@ -9,7 +9,7 @@ public class PlayerChated {
     public static void init(AsyncPlayerChatEvent event, Pranction plugin) {
         Player player = event.getPlayer();
 
-        if (plugin.getConfig().getString("players." + player.getUniqueId() + ".muted") == "true") {
+        if (plugin.getConfig().getBoolean("players." + player.getUniqueId() + ".muted")) {
             player.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Vous n'avez pas la permission de parler dans le chat publique !");
             event.setCancelled(true);
         }
