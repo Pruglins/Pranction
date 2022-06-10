@@ -1,0 +1,7 @@
+players:
+  15465154154e65q1z65e41631654:
+    name: beyptitloup
+    banned: true or false
+    muted: true or false
+    time_ban: PERMANENT
+    reason_ban: NULL

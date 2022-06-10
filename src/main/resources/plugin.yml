@@ -1,0 +1,18 @@
+name: Pranction
+version: 1.0
+author: Program
+main: fr.program.pranction.Pranction
+commands:
+  info:
+    aliases:
+      - information
+    description: Informations sur le plugin Pranction.
+    permission: pranction.player.info.use
+  modt:
+    aliases:
+      - modtool
+    description: Outils utiles a la moderation.
+    permission: pranction.moderator.modt.use
+  mute:
+    description: Rendre muet un joueur
+    permission: pranction.moderator.mute.use
