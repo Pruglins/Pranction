@@ -1,5 +1,5 @@
 name: Pranction
-version: 1.0
+version: 0.1
 author: Program
 main: fr.program.pranction.Pranction
 commands:
