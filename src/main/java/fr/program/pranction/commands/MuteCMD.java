@@ -17,16 +17,13 @@ public class MuteCMD implements CommandExecutor {
 
     private StringBuilder ArrayToStringRemoveCase(int remove_index, String[] array) {
         StringBuilder bc = new StringBuilder();
-
         int i = 0;
-
         for (String part : array) {
             if (i != remove_index) {
                 bc.append(part).append(" ");
             }
             i++;
         }
-
         return bc;
     }
 
@@ -53,6 +50,7 @@ public class MuteCMD implements CommandExecutor {
                 } else {
                     plugin.getConfig().set("players." + target.getUniqueId() + ".muted", true);
                     plugin.saveConfig();
+                    plr.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur ne peut plus parler !");
                 }
 
                 StringBuilder reason_mute = new StringBuilder();
