@@ -12,10 +12,13 @@ Ce dernier comporte que des outils de modération :
 * Commandes de modération :
 
     - modt ou modtool qui donne les outils de modération.
-    - mute qui rend silencieux un joueur.
+    - mute qui rend silencieux un joueur. (vous pouvez unmute également)
+    - sp ou sanctionplayer permet d'avoir un affichage pour choisir et sélectionner des sanctions à un joueur.
 
 * Permission :
 
     - pranction.player.info.use
     - pranction.moderator.modt.use
     - pranction.moderator.mute.use
+    - pranction.moderator.unmute.use
+    - pranction.moderator.sp.use
