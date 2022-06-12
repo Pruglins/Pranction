@@ -1,7 +1,8 @@
 name: Pranction
-version: 0.11
+version: 0.2
 author: Program
 main: fr.program.pranction.Pranction
+api-version: 1.13
 commands:
   info:
     aliases:
@@ -16,3 +17,11 @@ commands:
   mute:
     description: Rendre muet un joueur
     permission: pranction.moderator.mute.use
+  unmute:
+    description: Redonner la parole à un joueur
+    permission: pranction.moderator.unmute.use
+  sp:
+    aliases:
+      - sanctionplayer
+    description: Donner des sanctions à un joueur
+    permission: pranction.moderator.sp.use
