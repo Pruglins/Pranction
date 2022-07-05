@@ -35,33 +35,31 @@ public class MuteCMD implements CommandExecutor {
 
                 Player target = Bukkit.getPlayer(args[0]);
 
+                if (target == null ) {return false;}
+
                 if (!plugin.getConfig().contains("players." + target.getUniqueId())) {
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".name", target.getDisplayName());
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".banned", false);
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".reason_ban", "N/A");
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".time_ban", 0);
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".muted", true);
-                    plugin.saveConfig();
+                    plr.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur ne s'est jamais connecte !");
+                    return false;
                 }
 
                 if (plugin.getConfig().getBoolean("players." + target.getUniqueId() + ".muted")) {
                     plr.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur a deja ete reduit au silence !");
                     return false;
                 } else {
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".muted", true);
-                    plugin.saveConfig();
                     plr.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur ne peut plus parler !");
-                }
+                    StringBuilder reason_mute = new StringBuilder();
+                    StringBuilder bcargs = ArrayToStringRemoveCase(0, args);
+                    String[] nargs = bcargs.toString().split(" ");
+                    for (String part : nargs) {
+                        reason_mute.append(part).append(" ");
+                    }
+                    Bukkit.broadcastMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur " + target.getDisplayName() + " a ete sanctionne par un moderateur pour : " + reason_mute.toString());
 
-                StringBuilder reason_mute = new StringBuilder();
-                StringBuilder bcargs = ArrayToStringRemoveCase(0, args);
-                String[] nargs = bcargs.toString().split(" ");
-                for (String part : nargs) {
-                    reason_mute.append(part).append(" ");
+                    plugin.getConfig().set("players." + target.getUniqueId() + ".muted", true);
+                    plugin.getConfig().set("players." + target.getUniqueId() + ".reason_mute", reason_mute.toString());
+                    plugin.saveConfig();
+                    return true;
                 }
-
-                Bukkit.broadcastMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur " + target.getDisplayName() + " a ete sanctionne par un moderateur pour : " + reason_mute.toString());
-                return true;
             }
         }
         return false;

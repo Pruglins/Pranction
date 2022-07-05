@@ -41,10 +41,12 @@ public class SpCMD implements CommandExecutor {
 
                 Player target = Bukkit.getPlayer(args[0]);
 
+                if (target == null ) {return false;}
+
                 Inventory GUI_SP = Bukkit.createInventory(null, 54, "SP : " + target.getDisplayName());
 
                 NamespacedKey key_playerhead = new NamespacedKey(plugin, "playerhead-key");
-                ItemStack head_player = createItem(Material.PLAYER_HEAD, 1, target.getDisplayName());
+                ItemStack head_player = createItem(Material.PLAYER_HEAD, 1, ChatColor.RESET + target.getDisplayName());
                 ItemMeta head_player_meta = head_player.getItemMeta();
                 head_player_meta.setLore(Arrays.asList(
                         ChatColor.GREEN + "Information(s) sur le joueur " + target.getDisplayName(),
@@ -74,8 +76,8 @@ public class SpCMD implements CommandExecutor {
                 paper_chat.setItemMeta(paper_chat_meta);
                 GUI_SP.setItem(2, paper_chat);
 
-                NamespacedKey key_construction = new NamespacedKey(plugin, "construction-key");
-                ItemStack construction = createItem(Material.WHITE_WOOL, 1, "Construction");
+                NamespacedKey key_construction = new NamespacedKey(plugin, "gameplay-key");
+                ItemStack construction = createItem(Material.WHITE_WOOL, 1, "Gameplay");
                 ItemMeta construction_meta = construction.getItemMeta();
                 construction_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                 construction_meta.addEnchant(Enchantment.KNOCKBACK, 2, false);

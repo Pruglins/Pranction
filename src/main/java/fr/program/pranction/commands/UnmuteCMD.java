@@ -23,13 +23,11 @@ public class UnmuteCMD implements CommandExecutor {
 
                 Player target = Bukkit.getPlayer(args[0]);
 
+                if (target == null ) {return false;}
+
                 if (!plugin.getConfig().contains("players." + target.getUniqueId())) {
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".name", target.getDisplayName());
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".banned", false);
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".reason_ban", "N/A");
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".time_ban", 0);
-                    plugin.getConfig().set("players." + target.getUniqueId() + ".muted", false);
-                    plugin.saveConfig();
+                    plr.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur ne s'est jamais connecte !");
+                    return false;
                 }
 
                 if (!plugin.getConfig().getBoolean("players." + target.getUniqueId() + ".muted")) {
@@ -37,10 +35,11 @@ public class UnmuteCMD implements CommandExecutor {
                     return false;
                 } else {
                     plugin.getConfig().set("players." + target.getUniqueId() + ".muted", false);
+                    plugin.getConfig().set("players." + target.getUniqueId() + ".reason_mute", "N/A");
                     plugin.saveConfig();
                     plr.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur peut des maintenant parler !");
+                    return true;
                 }
-                return true;
             }
         }
         return false;

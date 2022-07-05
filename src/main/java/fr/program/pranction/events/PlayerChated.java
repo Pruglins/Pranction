@@ -10,7 +10,8 @@ public class PlayerChated {
         Player player = event.getPlayer();
 
         if (plugin.getConfig().getBoolean("players." + player.getUniqueId() + ".muted")) {
-            player.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Vous n'avez pas la permission de parler dans le chat publique !");
+            String reason_mute = plugin.getConfig().getString("players." + player.getUniqueId() + ".reason_mute");
+            player.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Vous n'avez pas la permission de parler dans le chat publique ! Raison : " + reason_mute.toString());
             event.setCancelled(true);
         }
     }
