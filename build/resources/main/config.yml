@@ -1,9 +1,0 @@
-players:
-  UUID:
-    name: "Nom"
-    banned: false
-    muted: false
-    time_ban: 0
-    time_mute: 0
-    reason_ban: "N/A"
-    reason_mute: "N/A"
