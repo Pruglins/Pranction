@@ -3,7 +3,7 @@
 /build
 /gradle
 /src
-/settings.gradle
-/gradlew.bat
-/gradlew
-/build.gradle
+settings.gradle
+gradlew.bat
+gradlew
+build.gradle
