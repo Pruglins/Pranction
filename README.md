@@ -20,5 +20,11 @@ Ce dernier comporte que des outils de modération :
     - pranction.player.info.use
     - pranction.moderator.modt.use
     - pranction.moderator.mute.use
+    - pranction.moderator.tempmute.us
     - pranction.moderator.unmute.use
     - pranction.moderator.sp.use
+    - pranction.moderator.tempban.use
+    - pranction.moderator.pban.use
+    - pranction.moderator.unban.use
+    - pranction.moderator.whois.use
+    - pranction.admin.cleardata.use

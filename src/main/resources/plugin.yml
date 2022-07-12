@@ -17,6 +17,9 @@ commands:
   mute:
     description: Rendre muet un joueur
     permission: pranction.moderator.mute.use
+  tempmute:
+    description: Rendre muet un joueur temporairement
+    permission: pranction.moderator.tempmute.use
   unmute:
     description: Redonner la parole à un joueur
     permission: pranction.moderator.unmute.use
@@ -33,9 +36,15 @@ commands:
   tempban:
     description: Bannir temporairement un joueur
     permission: pranction.moderator.tempban.use
+  unban:
+    description: Ne plus bannir un joueur
+    permission: pranction.moderator.unban.use
   cleardata:
     description: Supprime les donnees sauvegarde du joueur
     permission: pranction.admin.cleardata.use
   whois:
     description: Informations sur le joueur
     permission: pranction.moderator.whois.use
+  vanish:
+    description: Permet de se rendre invisible
+    permission: pranction.moderator.vanish.use

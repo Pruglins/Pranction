@@ -46,13 +46,6 @@ public class TempbanCMD implements CommandExecutor {
         return cal.getTime();
     }
 
-    private static Date ajouterMinutes(Date date, int min) {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(date);
-        cal.add(Calendar.MINUTE, min);
-        return cal.getTime();
-    }
-
     private static Date ajouterYear(Date date, int year) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -139,8 +132,6 @@ public class TempbanCMD implements CommandExecutor {
                                     return false;
                                 }
 
-                                plr.sendMessage(String.valueOf(time));
-
                                 plr.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur s'est fait bannir temporairement !");
                                 Bukkit.broadcastMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Le joueur " + target.getDisplayName() + " a ete sanctionne par un moderateur pour : " + reason_ban.toString());
 
@@ -149,10 +140,14 @@ public class TempbanCMD implements CommandExecutor {
                                 plugin.getConfig().set("players." + target.getUniqueId() + ".time_ban", time.getTime());
                                 plugin.saveConfig();
 
+                                target.kickPlayer(ChatColor.RESET  + "[" + ChatColor.LIGHT_PURPLE + "Pranction Ban" + ChatColor.RESET + "] " +
+                                        " \n Raison : " + reason_ban.toString() +
+                                        " \n Duree/Prend fin : " + ChatColor.BOLD + time.toString());
+
                                 return true;
                             }
                         } else {
-                            plr.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Merci de bannir au minimum 1 jour !");
+                            plr.sendMessage("[" + ChatColor.BOLD + ChatColor.LIGHT_PURPLE + "Pranction" + ChatColor.RESET + ChatColor.WHITE + "] Merci de bannir au minimum 1 seconde !");
                             return false;
                         }
                     } else {
